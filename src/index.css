@@ -1,0 +1,249 @@
+@import "tailwindcss";
+
+:root {
+  font-family: "Nunito", "Trebuchet MS", sans-serif;
+  color: #173045;
+  background: linear-gradient(135deg, #f8fafc 0%, #e9f7ff 45%, #fff7ed 100%);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.app {
+  max-width: 1050px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.header {
+  margin-bottom: 1.2rem;
+}
+
+.brand {
+  margin: 0;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #d4581d;
+  font-weight: 800;
+}
+
+.header h1 {
+  margin: 0.4rem 0;
+  font-size: clamp(1.45rem, 3vw, 2.3rem);
+}
+
+.sub {
+  margin: 0;
+  color: #486072;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 1rem;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.86);
+  border: 1px solid #d8e7f1;
+  border-radius: 18px;
+  padding: 1rem;
+  box-shadow: 0 14px 30px -20px rgba(14, 38, 61, 0.45);
+}
+
+.modes,
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.modes button,
+.actions button,
+.task-form button,
+.task-title,
+.delete {
+  border: none;
+  border-radius: 10px;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.modes button {
+  background: #edf4fb;
+  color: #2f4a60;
+  padding: 0.48rem 0.8rem;
+}
+
+.modes button.active {
+  background: #1b7dbd;
+  color: #fff;
+}
+
+.active-label {
+  margin: 0.9rem 0 0.45rem;
+  color: #4f6473;
+}
+
+.clock {
+  margin: 0;
+  font-size: clamp(2.7rem, 8vw, 4.2rem);
+  font-weight: 800;
+  letter-spacing: 0.05em;
+}
+
+.actions {
+  margin-top: 0.7rem;
+}
+
+.actions button {
+  background: #e8f0f8;
+  color: #1f4360;
+  padding: 0.52rem 0.95rem;
+}
+
+.actions .primary {
+  background: #d4581d;
+  color: #fff;
+}
+
+.stats {
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.5rem;
+}
+
+.stats div {
+  background: #f4f8fc;
+  border-radius: 12px;
+  padding: 0.55rem;
+}
+
+.stats span {
+  display: block;
+  font-size: 0.76rem;
+  color: #5b7080;
+}
+
+.stats strong {
+  font-size: 1.06rem;
+}
+
+.progress-track {
+  margin-top: 0.8rem;
+  height: 9px;
+  background: #e5edf5;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.progress-track span {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, #1b7dbd, #35b4b0);
+  border-radius: inherit;
+  transition: width 0.3s ease;
+}
+
+.task-form {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.5rem;
+}
+
+.task-form input {
+  border: 1px solid #c9dbe8;
+  border-radius: 10px;
+  padding: 0.55rem;
+  font: inherit;
+}
+
+.task-form button {
+  background: #1b7dbd;
+  color: #fff;
+  padding: 0.55rem 1rem;
+}
+
+.task-list {
+  list-style: none;
+  padding: 0;
+  margin: 0.8rem 0 0;
+  display: grid;
+  gap: 0.55rem;
+}
+
+.task {
+  display: grid;
+  grid-template-columns: auto 1fr auto auto;
+  gap: 0.5rem;
+  align-items: center;
+  border: 1px solid #deebf4;
+  border-radius: 12px;
+  background: #fff;
+  padding: 0.52rem;
+}
+
+.task.done .task-title {
+  text-decoration: line-through;
+  color: #7a8d9b;
+}
+
+.task-title {
+  text-align: left;
+  background: transparent;
+  color: #1f3f57;
+  font-weight: 600;
+}
+
+.task-title.active {
+  color: #1b7dbd;
+}
+
+.task span {
+  font-size: 0.84rem;
+  color: #5f7280;
+}
+
+.delete {
+  background: #fce7df;
+  color: #a03710;
+  padding: 0.42rem 0.68rem;
+  font-size: 0.82rem;
+}
+
+.empty {
+  margin: 0.75rem 0 0;
+  color: #5b6d7a;
+}
+
+@media (max-width: 860px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  .stats {
+    grid-template-columns: 1fr;
+  }
+
+  .task {
+    grid-template-columns: auto 1fr;
+  }
+
+  .task span,
+  .delete {
+    justify-self: start;
+  }
+}
