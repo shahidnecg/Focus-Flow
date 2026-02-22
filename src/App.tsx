@@ -9,7 +9,6 @@ import {
   FiBell,
   FiTarget,
   FiCoffee,
-  FiBriefcase,
   FiPlus,
   FiTrash2,
   FiEdit2,
@@ -17,7 +16,6 @@ import {
   FiBarChart2,
   FiSettings,
   FiArrowRight,
-  FiSkipForward,
   FiAlertCircle,
   FiVolume2,
   FiVolumeX,
@@ -446,7 +444,7 @@ const App: React.FC = () => {
               const updated = tasks.map((t) => {
                 if (t.id !== selectedTask.id) return t;
                 const cp = (t.completedPomodoros || 0) + 1;
-                const status =
+                const status: "completed" | "in-progress" =
                   cp >= t.estimatedPomodoros ? "completed" : "in-progress";
                 if (status === "completed") {
                   speak(
